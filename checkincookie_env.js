@@ -123,6 +123,7 @@ function checkin(url, cookie, name) {
   };
   console.log(checkinrequest);
   $.post(checkinrequest, (error, response, data) => {
+    console.log('错误:',error,'返回数据：',response,'data',data);
     if (error) {
       console.log(error);
       $.msg(name, "签到失败", error);
