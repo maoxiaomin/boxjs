@@ -123,7 +123,6 @@ function checkin(url, cookie, name) {
     headers: { Cookie: cookie },
   };
   $.post(checkinrequest, (error, response, data) => {
-    $.msg(name, "签到失败", data);
     if (error) {
       console.log(error);
       $.msg(name, "签到失败", error);
