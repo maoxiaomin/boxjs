@@ -159,7 +159,7 @@ function login(url, email, password, title) {
 
 function checkin(url, email, password, title) {
   let checkinPath =
-    url.indexOf("auth/login") != -1 ? "user/checkin" : "user/_checkin.php";
+    url.indexOf("auth/login") != -1 ? "user/checkin" : "user/checkin";
   var checkinreqest = {
     url: url.replace(/(auth|user)\/login(.php)*/g, "") + checkinPath,
   };
