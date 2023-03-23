@@ -495,7 +495,7 @@ function Env(name, opts) {
 
     post(opts, callback = () => {}) {
       
-      $.msg(name, "497行pots", pots);
+      $.msg(name, "497行opts", opts);
       
       // 如果指定了请求体, 但没指定`Content-Type`, 则自动生成
       if (opts.body && opts.headers && !opts.headers["Content-Type"]) {
