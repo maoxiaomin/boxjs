@@ -495,7 +495,9 @@ function Env(name, opts) {
 
     post(opts, callback = () => {}) {
       
-      $.msg(name, "497行opts", opts);
+      $.msg(name, "497行opts", opts.body);
+      $.msg(name, "499行opts", opts.headers);
+      
       
       // 如果指定了请求体, 但没指定`Content-Type`, 则自动生成
       if (opts.body && opts.headers && !opts.headers["Content-Type"]) {
@@ -503,6 +505,7 @@ function Env(name, opts) {
       }
       if (opts.headers) delete opts.headers["Content-Length"];
       if (this.isSurge() || this.isLoon()) {
+        console.log('---------------suger---------------');
         if (this.isSurge() && this.isNeedRewrite) {
           opts.headers = opts.headers || {};
           Object.assign(opts.headers, { "X-Surge-Skip-Scripting": false });
@@ -515,13 +518,16 @@ function Env(name, opts) {
           callback(err, resp, body);
         });
       } else if (this.isQuanX()) {
+        console.log('---------------qx---------------');
         opts.method = "POST";
         if (this.isNeedRewrite) {
+          console.log('---------------qx-isneed---------------');
           opts.opts = opts.opts || {};
           Object.assign(opts.opts, { hints: false });
         }
         $task.fetch(opts).then(
           (resp) => {
+            console.log('---------------qx-isneed-resp---------------');
             const { statusCode: status, statusCode, headers, body } = resp;
             callback(null, { status, statusCode, headers, body }, body);
           },
