@@ -115,7 +115,7 @@ var sicookie = $.getdata(signcookie);
 
 function checkin(url, cookie, name) {
   let checkinPath =
-    url.indexOf("auth/login") != -1 ? "user/checkin" : "user/_checkin.php";
+    url.indexOf("auth/login") != -1 ? "user/checkin" : "user/checkin";
   var checkinurl = url.replace(/(auth|user)\/login(.php)*/g, "") + checkinPath;
   var checkinrequest = {
     url: checkinurl,
