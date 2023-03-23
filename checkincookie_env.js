@@ -100,7 +100,6 @@ var sicookie = $.getdata(signcookie);
       "http://boxjs.com"
     );
   }
-   console.log('1112222222222222');
   var name = $.getdata("evil_checkincktitle");
   if (name == undefined || name == "") {
     name = "机场签到Cookie版";
@@ -123,6 +122,7 @@ function checkin(url, cookie, name) {
     headers: { Cookie: cookie },
   };
   $.post(checkinrequest, (error, response, data) => {
+      console.log(data);
     if (error) {
       console.log(error);
       $.msg(name, "签到失败", error);
