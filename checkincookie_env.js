@@ -525,12 +525,15 @@ function Env(name, opts) {
           opts.opts = opts.opts || {};
           Object.assign(opts.opts, { hints: false });
         }
+        console.log('---------------qx528--------------');
         $task.fetch(opts).then(
+          console.log('---------------qx530--------------');
           (resp) => {
             console.log('---------------qx-isneed-resp---------------');
             const { statusCode: status, statusCode, headers, body } = resp;
             callback(null, { status, statusCode, headers, body }, body);
           },
+            console.log('---------------qx536--------------');
           (err) => callback(err)
         );
       } else if (this.isNode()) {
