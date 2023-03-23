@@ -115,8 +115,6 @@ var sicookie = $.getdata(signcookie);
   });
 
 function checkin(url, cookie, name) {
- $.msg(name, "地118行", url)
-   console.log('嘻嘻嘻',url,cookie,name);
   let checkinPath =
     url.indexOf("auth/login") != -1 ? "user/checkin" : "user/checkin";
   var checkinurl = url.replace(/(auth|user)\/login(.php)*/g, "") + checkinPath;
@@ -124,10 +122,8 @@ function checkin(url, cookie, name) {
     url: checkinurl,
     headers: { Cookie: cookie },
   };
-  console.log('哈哈哈哈'，checkinrequest);
   $.post(checkinrequest, (error, response, data) => {
-    $.msg(name, "地129行", response)
-    console.log('错误:',error,'返回数据：',response,'data',data);
+    $.msg(name, "地129行", data)
     if (error) {
       console.log(error);
       $.msg(name, "签到失败", error);
