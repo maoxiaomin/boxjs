@@ -37,8 +37,7 @@ var sicookie = $.getdata(signcookie);
   });
 
 function checkin(url, cookie, name) {
-  console.log('cookie',cookie);
-  $.msg(name, "签到失败1", cookie);
+  $.msg(name, "40行cookie", cookie);
   let checkinPath =
     url.indexOf("auth/login") != -1 ? "user/checkin" : "user/checkin";
   var checkinurl = url.replace(/(auth|user)\/login(.php)*/g, "") + checkinPath;
@@ -46,11 +45,15 @@ function checkin(url, cookie, name) {
     url: checkinurl,
     headers: { Cookie: cookie },
   };
-  console.log('连接',checkinurl);
-  $.msg(name, "签到失败2", checkinurl);
+  
+  $.msg(name, "49行checkinurl", checkinurl);
+  
   $.post(checkinrequest, (error, response, data) => {
-      console.log('error',error,'res',response,'data',data);
-      $.msg(name, "签到失败2", data);
+    
+      $.msg(name, "52行error", error);
+      $.msg(name, "53行response", response);
+      $.msg(name, "54行data", data); 
+    
     if (error) {
       console.log(error);
       $.msg(name, "签到失败", error);
@@ -491,8 +494,9 @@ function Env(name, opts) {
     }
 
     post(opts, callback = () => {}) {
-      console.log('POSTTTTT',opts);
-      $.msg(name, "签到失败", pots);
+      
+      $.msg(name, "497行pots", pots);
+      
       // 如果指定了请求体, 但没指定`Content-Type`, 则自动生成
       if (opts.body && opts.headers && !opts.headers["Content-Type"]) {
         opts.headers["Content-Type"] = "application/x-www-form-urlencoded";
