@@ -45,6 +45,7 @@ function checkin(url, cookie, name) {
     url: checkinurl,
     headers: { Cookie: cookie },
   };
+  console.log('连接',checkinurl);
   $.post(checkinrequest, (error, response, data) => {
       console.log('error',error,'res',response,'data',data);
     if (error) {
@@ -487,6 +488,7 @@ function Env(name, opts) {
     }
 
     post(opts, callback = () => {}) {
+      console.log('POSTTTTT',opts);
       // 如果指定了请求体, 但没指定`Content-Type`, 则自动生成
       if (opts.body && opts.headers && !opts.headers["Content-Type"]) {
         opts.headers["Content-Type"] = "application/x-www-form-urlencoded";
