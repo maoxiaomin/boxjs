@@ -100,6 +100,7 @@ var sicookie = $.getdata(signcookie);
       "http://boxjs.com"
     );
   }
+   console.log('1112222222222222');
   var name = $.getdata("evil_checkincktitle");
   if (name == undefined || name == "") {
     name = "机场签到Cookie版";
@@ -114,6 +115,7 @@ var sicookie = $.getdata(signcookie);
   });
 
 function checkin(url, cookie, name) {
+   console.log('嘻嘻嘻',url,cookie,name);
   let checkinPath =
     url.indexOf("auth/login") != -1 ? "user/checkin" : "user/checkin";
   var checkinurl = url.replace(/(auth|user)\/login(.php)*/g, "") + checkinPath;
@@ -121,7 +123,7 @@ function checkin(url, cookie, name) {
     url: checkinurl,
     headers: { Cookie: cookie },
   };
-  console.log(checkinrequest);
+  console.log('哈哈哈哈'，checkinrequest);
   $.post(checkinrequest, (error, response, data) => {
     console.log('错误:',error,'返回数据：',response,'data',data);
     if (error) {
