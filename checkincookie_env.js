@@ -37,6 +37,7 @@ var sicookie = $.getdata(signcookie);
   });
 
 function checkin(url, cookie, name) {
+  console.log('cookie',cookie);
   let checkinPath =
     url.indexOf("auth/login") != -1 ? "user/checkin" : "user/checkin";
   var checkinurl = url.replace(/(auth|user)\/login(.php)*/g, "") + checkinPath;
@@ -45,7 +46,7 @@ function checkin(url, cookie, name) {
     headers: { Cookie: cookie },
   };
   $.post(checkinrequest, (error, response, data) => {
-      console.log(data);
+      console.log('error',error,'res',response,'data',data);
     if (error) {
       console.log(error);
       $.msg(name, "签到失败", error);
