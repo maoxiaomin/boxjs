@@ -527,14 +527,15 @@ function Env(name, opts) {
         }
         console.log('---------------qx528--------------');
         $task.fetch(opts).then(
-          console.log('---------------qx530--------------');
+          console.log('---------------qx530--------------')
           (resp) => {
             console.log('---------------qx-isneed-resp---------------');
             const { statusCode: status, statusCode, headers, body } = resp;
             callback(null, { status, statusCode, headers, body }, body);
           },
-            console.log('---------------qx536--------------');
+          console.log('---------------qx536--------------')
           (err) => callback(err)
+          console.log('---------------qx536--------------')
         );
       } else if (this.isNode()) {
         this.initGotEnv(opts);
